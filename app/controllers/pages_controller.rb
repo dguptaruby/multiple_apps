@@ -1,18 +1,12 @@
 class PagesController < ApplicationController
-
   before_action :find_web_app
 
   def search_pages
     @path = @web_application.url
   end
 
-  def about_pages
-    @path = @web_application.url + '/about'
-    render 'search_pages'
-  end
-
-  def version_pages
-    @path = @web_application.url + '/version'
+  def app_page
+    @path = @web_application.url + '/' + params[:action_name]
     render 'search_pages'
   end
 
